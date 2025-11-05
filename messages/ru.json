@@ -1,0 +1,16 @@
+{
+  "common": {
+    "title": "Telegram Mini App"
+  },
+  "home": {
+    "title": "Главная",
+    "welcome": "Добро пожаловать"
+  },
+  "profile": {
+    "title": "Профиль"
+  },
+  "currencyExchange": {
+    "title": "Обмен валюты"
+  }
+}
+

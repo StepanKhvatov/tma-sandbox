@@ -1,0 +1,12 @@
+import { getTranslations } from 'next-intl/server';
+
+export default async function ProfilePage() {
+  const t = await getTranslations('profile');
+
+  return (
+    <div>
+      <h1>{t('title')}</h1>
+    </div>
+  );
+}
+
