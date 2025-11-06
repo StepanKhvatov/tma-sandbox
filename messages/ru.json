@@ -5,13 +5,19 @@
   },
   "home": {
     "title": "Главная",
-    "welcome": "Добро пожаловать"
+    "welcome": "Добро пожаловать",
+    "goToCurrencyExchange": "Обмен валюты"
   },
   "profile": {
     "title": "Профиль"
   },
   "currencyExchange": {
-    "title": "Обмен валюты"
+    "title": "Обмен валюты",
+    "fromAmount": "Отдаете",
+    "fromAmountPlaceholder": "Введите сумму",
+    "toAmount": "Получаете",
+    "toAmountPlaceholder": "Введите сумму",
+    "submit": "Обменять"
   }
 }
 

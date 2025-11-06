@@ -5,13 +5,19 @@
   },
   "home": {
     "title": "Home",
-    "welcome": "Welcome"
+    "welcome": "Welcome",
+    "goToCurrencyExchange": "Currency Exchange"
   },
   "profile": {
     "title": "Profile"
   },
   "currencyExchange": {
-    "title": "Currency Exchange"
+    "title": "Currency Exchange",
+    "fromAmount": "From",
+    "fromAmountPlaceholder": "Enter amount",
+    "toAmount": "To",
+    "toAmountPlaceholder": "Enter amount",
+    "submit": "Exchange"
   }
 }
 
