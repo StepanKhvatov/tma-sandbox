@@ -1,38 +1,33 @@
 {
-  "name": "tma-sandbox",
+  "name": "nextjs-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:https": "next dev --experimental-https",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.0",
-    "@tailwindcss/postcss": "^4.1.16",
-    "@tailwindcss/vite": "^4.0.0",
-    "@tma.js/sdk-react": "^3.0.8",
-    "next": "^16.0.0",
-    "next-intl": "^4.4.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@telegram-apps/sdk-react": "^3.2.4",
+    "@telegram-apps/telegram-ui": "^2.1.5",
+    "@tonconnect/ui-react": "^2.1.0",
+    "eruda": "^3.0.1",
+    "next": "15.3.1",
+    "next-intl": "^4.1.0",
+    "normalize.css": "^8.0.1",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.39.1",
-    "@types/node": "^20.14.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^9.0.0",
-    "eslint-config-next": "^16.0.0",
-    "eslint-config-prettier": "^9.1.0",
-    "postcss": "^8.4.38",
-    "prettier": "^3.3.3",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.4.5"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
