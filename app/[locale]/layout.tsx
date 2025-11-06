@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { TelegramProvider } from '@/components/providers/telegram-provider';
+import { TelegramThemeProvider } from '@/components/telegram/theme-provider';
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -91,9 +93,13 @@ export default async function LocaleLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className={inter.variable}>
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <TelegramProvider>
+          <TelegramThemeProvider>
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </TelegramThemeProvider>
+        </TelegramProvider>
       </body>
     </html>
   );
