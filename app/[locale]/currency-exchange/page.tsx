@@ -1,10 +1,11 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { Header } from '@/components/layout/header';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useState } from 'react';
+import { BackButton } from '@/components/telegram/back-button';
+import { useTelegram } from '@/hooks/use-telegram';
 
 export default function CurrencyExchangePage() {
   const t = useTranslations('currencyExchange');
@@ -14,20 +15,14 @@ export default function CurrencyExchangePage() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
-    
-    // Здесь будет логика обмена валюты
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
   };
 
   return (
     <div>
-      <Header />
+      <BackButton />
       <main className="px-4 py-6">
         <h1 className="text-3xl font-bold mb-6">{t('title')}</h1>
-        
+
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
             id="from-amount"
@@ -35,20 +30,20 @@ export default function CurrencyExchangePage() {
             label={t('fromAmount')}
             placeholder={t('fromAmountPlaceholder')}
             value={fromAmount}
-            onChange={(e) => setFromAmount(e.target.value)}
+            onChange={e => setFromAmount(e.target.value)}
             required
           />
-          
+
           <Input
             id="to-amount"
             type="number"
             label={t('toAmount')}
             placeholder={t('toAmountPlaceholder')}
             value={toAmount}
-            onChange={(e) => setToAmount(e.target.value)}
+            onChange={e => setToAmount(e.target.value)}
             required
           />
-          
+
           <Button type="submit" isLoading={isLoading}>
             {t('submit')}
           </Button>
@@ -57,4 +52,3 @@ export default function CurrencyExchangePage() {
     </div>
   );
 }
-
