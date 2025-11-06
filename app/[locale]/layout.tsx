@@ -6,6 +6,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { TelegramProvider } from '@/components/providers/telegram-provider';
 import { TelegramThemeProvider } from '@/components/telegram/theme-provider';
+import { TelegramErrorBoundary } from '@/components/providers/telegram-error-boundary';
+import { TelegramSafeWrapper } from '@/components/providers/telegram-safe-wrapper';
 
 const inter = Inter({
   subsets: ['latin', 'cyrillic'],
@@ -94,11 +96,15 @@ export default async function LocaleLayout({
       </head>
       <body className={inter.variable}>
         <TelegramProvider>
-          <TelegramThemeProvider>
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
-          </TelegramThemeProvider>
+          <TelegramErrorBoundary>
+            <TelegramSafeWrapper>
+              <TelegramThemeProvider>
+                <NextIntlClientProvider messages={messages}>
+                  {children}
+                </NextIntlClientProvider>
+              </TelegramThemeProvider>
+            </TelegramSafeWrapper>
+          </TelegramErrorBoundary>
         </TelegramProvider>
       </body>
     </html>

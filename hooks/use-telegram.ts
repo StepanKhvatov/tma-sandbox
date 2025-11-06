@@ -3,7 +3,6 @@
 import {
   useLaunchParams,
   useRawInitData,
-  useAndroidDeviceData,
   useSignal,
 } from '@tma.js/sdk-react';
 import {
@@ -39,6 +38,8 @@ import {
  * ```
  */
 export function useTelegram() {
+  // Хуки должны вызываться всегда, но могут выбрасывать ошибки вне Telegram
+  // Эти ошибки должны обрабатываться через Error Boundary
   const launchParams = useLaunchParams();
   const rawInitData = useRawInitData();
 
