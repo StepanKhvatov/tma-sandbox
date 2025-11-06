@@ -1,4 +1,179 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind утилиты для цветов Telegram */
+@theme {
+  --color-telegram-primary: #2481cc;
+  --color-telegram-primary-hover: #1e6ba8;
+  --color-telegram-primary-active: #1a5a8f;
+  
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-tertiary: #e8e8e8;
+  
+  --color-bg-dark-primary: #212121;
+  --color-bg-dark-secondary: #2d2d2d;
+  --color-bg-dark-tertiary: #3d3d3d;
+  
+  --color-text-primary: #000000;
+  --color-text-secondary: #707579;
+  --color-text-tertiary: #999999;
+  
+  --color-text-dark-primary: #ffffff;
+  --color-text-dark-secondary: #b0b0b0;
+  --color-text-dark-tertiary: #808080;
+  
+  --color-border-light: #e0e0e0;
+  --color-border-dark: #404040;
+  
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+}
+
+/* Цветовая палитра Telegram Mini App через CSS переменные */
+:root {
+  /* Основные цвета Telegram */
+  --color-telegram-primary: #2481cc;
+  --color-telegram-primary-hover: #1e6ba8;
+  --color-telegram-primary-active: #1a5a8f;
+  
+  /* Фоновые цвета (светлая тема) */
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-tertiary: #e8e8e8;
+  
+  /* Фоновые цвета (темная тема) */
+  --color-bg-dark-primary: #212121;
+  --color-bg-dark-secondary: #2d2d2d;
+  --color-bg-dark-tertiary: #3d3d3d;
+  
+  /* Текстовые цвета (светлая тема) */
+  --color-text-primary: #000000;
+  --color-text-secondary: #707579;
+  --color-text-tertiary: #999999;
+  
+  /* Текстовые цвета (темная тема) */
+  --color-text-dark-primary: #ffffff;
+  --color-text-dark-secondary: #b0b0b0;
+  --color-text-dark-tertiary: #808080;
+  
+  /* Границы */
+  --color-border-light: #e0e0e0;
+  --color-border-dark: #404040;
+  
+  /* Акцентные цвета */
+  --color-success: #4caf50;
+  --color-error: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg-primary: var(--color-bg-dark-primary);
+    --color-bg-secondary: var(--color-bg-dark-secondary);
+    --color-bg-tertiary: var(--color-bg-dark-tertiary);
+    --color-text-primary: var(--color-text-dark-primary);
+    --color-text-secondary: var(--color-text-dark-secondary);
+    --color-text-tertiary: var(--color-text-dark-tertiary);
+    --color-border-light: var(--color-border-dark);
+  }
+}
+
+/* Базовые стили */
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Оптимизация для сенсорного ввода */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    touch-action: manipulation;
+  }
+  
+  /* Улучшенная читаемость */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+    letter-spacing: -0.02em;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+}
+
+/* Компоненты */
+@layer components {
+  /* Кнопки Telegram стиля */
+  .btn-telegram {
+    background-color: var(--color-telegram-primary);
+    color: white;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    min-height: 44px;
+    min-width: 44px;
+    transition: background-color 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-telegram:hover {
+    background-color: var(--color-telegram-primary-hover);
+  }
+  
+  .btn-telegram:active {
+    background-color: var(--color-telegram-primary-active);
+  }
+  
+  .btn-telegram:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Карточки */
+  .card {
+    background-color: var(--color-bg-primary);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    border: 1px solid var(--color-border-light);
+  }
+  
+  /* Вводы */
+  .input {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border-light);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-primary);
+    min-height: 44px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: var(--color-telegram-primary);
+    box-shadow: 0 0 0 2px rgba(36, 129, 204, 0.2);
+  }
+}
 

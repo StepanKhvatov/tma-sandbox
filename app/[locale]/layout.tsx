@@ -3,6 +3,14 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+  variable: '--font-inter',
+  weight: ['400', '500', '600', '700'],
+});
 
 export function generateStaticParams() {
   return routing.locales.map(locale => ({ locale }));
@@ -82,7 +90,7 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body>
+      <body className={inter.variable}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
