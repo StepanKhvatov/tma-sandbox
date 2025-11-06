@@ -1,6 +1,7 @@
 {
   "common": {
-    "title": "Telegram Mini App"
+    "title": "Telegram Mini App",
+    "description": "Telegram Mini App для обмена валют и управления профилем"
   },
   "home": {
     "title": "Главная",

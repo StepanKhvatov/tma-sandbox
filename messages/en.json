@@ -1,6 +1,7 @@
 {
   "common": {
-    "title": "Telegram Mini App"
+    "title": "Telegram Mini App",
+    "description": "Telegram Mini App for currency exchange and profile management"
   },
   "home": {
     "title": "Home",
