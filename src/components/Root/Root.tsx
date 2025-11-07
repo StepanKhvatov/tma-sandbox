@@ -9,8 +9,8 @@ import {
 } from '@telegram-apps/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 
-import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { ErrorPage } from '@/components/ErrorPage';
+import { ErrorBoundary } from '@/components/error-boundary/ErrorBoundary';
+import { ErrorPage } from '@/components/error-page/ErrorPage';
 import { useDidMount } from '@/hooks/useDidMount';
 import { setLocale } from '@/core/i18n/locale';
 

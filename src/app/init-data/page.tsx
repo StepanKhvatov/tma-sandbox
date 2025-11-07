@@ -12,8 +12,8 @@ import {
 import {
   DisplayData,
   type DisplayDataRow,
-} from '@/components/DisplayData/DisplayData';
-import { Page } from '@/components/Page';
+} from '@/components/display-data/DisplayData';
+import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
 
 function getUserRows(user: User): DisplayDataRow[] {
   return Object.entries(user).map(([title, value]) => ({ title, value }));
@@ -66,7 +66,8 @@ export default function InitDataPage() {
 
   if (!initDataRows) {
     return (
-      <Page>
+      <>
+        <TMABackButton />
         <div className="flex flex-col items-center justify-center min-h-screen p-6 text-center">
           <div className="prose prose-2xl max-w-none text-3xl font-bold mb-4 text-gray-900">
             Oops
@@ -80,11 +81,12 @@ export default function InitDataPage() {
             className="w-36 h-36 rounded-2xl shadow-lg"
           />
         </div>
-      </Page>
+      </>
     );
   }
   return (
-    <Page>
+    <>
+      <TMABackButton />
       <div className="space-y-6 p-4 max-w-4xl mx-auto">
         <DisplayData
           header={<h2 className="m-0">Init Data</h2>}
@@ -103,6 +105,6 @@ export default function InitDataPage() {
           <DisplayData header={<h2 className="m-0">Chat</h2>} rows={chatRows} />
         )}
       </div>
-    </Page>
+    </>
   );
 }

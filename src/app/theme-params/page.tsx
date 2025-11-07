@@ -1,14 +1,15 @@
 'use client';
 
 import { themeParams, useSignal } from '@telegram-apps/sdk-react';
-import { DisplayData } from '@/components/DisplayData/DisplayData';
-import { Page } from '@/components/Page';
+import { DisplayData } from '@/components/display-data/DisplayData';
+import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
 
 export default function ThemeParamsPage() {
   const tp = useSignal(themeParams.state);
 
   return (
-    <Page>
+    <>
+      <TMABackButton />
       <div className="space-y-6 p-4 max-w-4xl mx-auto">
         <DisplayData
           header={<h2 className="m-0">Theme Parameters</h2>}
@@ -20,6 +21,6 @@ export default function ThemeParamsPage() {
           }))}
         />
       </div>
-    </Page>
+    </>
   );
 }

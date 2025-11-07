@@ -22,3 +22,4 @@ export const RGB: FC<RGBProps> = ({ color, className, ...rest }) => (
     {color}
   </span>
 );
+

@@ -4,8 +4,8 @@ import { openLink } from '@telegram-apps/sdk-react';
 import { TonConnectButton, useTonWallet } from '@tonconnect/ui-react';
 
 import { tv } from 'tailwind-variants/lite';
-import { DisplayData } from '@/components/DisplayData/DisplayData';
-import { Page } from '@/components/Page';
+import { DisplayData } from '@/components/display-data/DisplayData';
+import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
 
 const tonConnectPage = tv({
   slots: {
@@ -22,20 +22,25 @@ export default function TONConnectPage() {
 
   if (!wallet) {
     return (
-      <Page>
-        <div className={`flex flex-col items-center justify-center min-h-screen p-6 text-center ${placeholder()}`}>
-          <div className="prose prose-2xl max-w-none text-3xl font-bold mb-4 text-gray-900">TON Connect</div>
-          <div className="prose prose-base max-w-none text-base max-w-md mb-6 text-gray-500">
+      <>
+        <TMABackButton />
+        <div
+          className={`flex flex-col items-center justify-center min-h-screen p-6 text-center ${placeholder()}`}
+        >
+          <div className="prose prose-2xl max-w-none text-3xl font-bold mb-4 text-gray-900">
+            TON Connect
+          </div>
+          <div className="prose prose-base max-w-md text-base mb-6 text-gray-500">
             <p>
-              To display the data related to the TON Connect, it is required
-              to connect your wallet
+              To display the data related to the TON Connect, it is required to
+              connect your wallet
             </p>
             <div className="mt-6">
               <TonConnectButton className={button()} />
             </div>
           </div>
         </div>
-      </Page>
+      </>
     );
   }
 
@@ -45,14 +50,15 @@ export default function TONConnectPage() {
   } = wallet;
 
   return (
-    <Page>
+    <>
+      <TMABackButton />
       <div className="space-y-6 p-4 max-w-4xl mx-auto">
         {'imageUrl' in wallet && (
           <>
             <div className="overflow-hidden bg-white rounded-xl shadow-lg border border-gray-200">
               <div
                 className="flex items-center px-6 py-4 transition-all duration-200 bg-white hover:bg-gray-50 group cursor-pointer"
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   openLink(wallet.aboutUrl);
                 }}
@@ -63,10 +69,14 @@ export default function TONConnectPage() {
                   className="w-16 h-16 rounded-full mr-4 shadow-md ring-2 ring-blue-100 group-hover:ring-blue-300 transition-all"
                 />
                 <div className="flex-1">
-                  <h3 className="text-base font-semibold mb-1 text-gray-900 m-0">{wallet.name}</h3>
+                  <h3 className="text-base font-semibold mb-1 text-gray-900 m-0">
+                    {wallet.name}
+                  </h3>
                   <div className="text-sm text-gray-500">{wallet.appName}</div>
                 </div>
-                <span className="text-sm font-medium text-blue-600 hover:text-blue-700">About wallet →</span>
+                <span className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                  About wallet →
+                </span>
               </div>
             </div>
             <TonConnectButton className={buttonConnected()} />
@@ -90,13 +100,13 @@ export default function TONConnectPage() {
             {
               title: 'Features',
               value: features
-                .map((f) => (typeof f === 'object' ? f.name : undefined))
-                .filter((v) => v)
+                .map(f => (typeof f === 'object' ? f.name : undefined))
+                .filter(v => v)
                 .join(', '),
             },
           ]}
         />
       </div>
-    </Page>
+    </>
   );
 }
