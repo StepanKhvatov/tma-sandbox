@@ -9,17 +9,13 @@ Telegram Mini Apps platform using the following technologies and libraries:
 - [@telegram-apps SDK](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk/2-x)
 - [Telegram UI](https://github.com/Telegram-Mini-Apps/TelegramUI)
 
-> The template was created using [pnpm](https://pnpm.io/). Therefore, it is
-> required to use it for this project as well. Using other package managers, you
-> will receive a corresponding error.
-
 ## Install Dependencies
 
 If you have just cloned this template, you should install the project
 dependencies using the command:
 
 ```Bash
-pnpm install
+npm install
 ```
 
 ## Scripts
@@ -35,11 +31,11 @@ This project contains the following scripts:
   the required
   standards.
 
-To run a script, use the `pnpm run` command:
+To run a script, use the `npm run` command:
 
 ```Bash
-pnpm run {script}
-# Example: pnpm run build
+npm run {script}
+# Example: npm run build
 ```
 
 ## Create Bot and Mini App
@@ -58,7 +54,7 @@ process.
 To run the application in the development mode, use the `dev` script:
 
 ```bash
-pnpm run dev
+npm run dev
 ```
 
 After this, you will see a similar message in your terminal:
@@ -99,7 +95,7 @@ To retrieve a link with the HTTPS protocol, consider using the `dev:https`
 script:
 
 ```bash
-$ pnpm run dev:https
+$ npm run dev:https
 
 ▲ Next.js 14.2.3
 - Local:        https://localhost:3000
