@@ -1,7 +1,6 @@
 'use client';
 
 import { themeParams, useSignal } from '@telegram-apps/sdk-react';
-
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
 

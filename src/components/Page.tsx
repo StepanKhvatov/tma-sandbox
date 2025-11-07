@@ -1,8 +1,7 @@
 'use client';
 
-import { backButton } from '@tma.js/sdk-react';
+import { backButton, useSignal } from '@tma.js/sdk-react';
 import { PropsWithChildren, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
 
 export function Page({
   children,
@@ -14,21 +13,25 @@ export function Page({
    */
   back?: boolean;
 }>) {
-  const router = useRouter();
+  const isVisible = useSignal(backButton.isVisible);
+
+  useEffect(() => {
+    console.log('The button is', isVisible ? 'visible' : 'invisible');
+  }, [isVisible]);
 
   useEffect(() => {
     if (back) {
       backButton.mount();
-    } else {
-      backButton.unmount();
+      backButton.show();
     }
-  }, [back]);
 
-  useEffect(() => {
-    return backButton.onClick(() => {
-      router.back();
-    });
-  }, [router]);
+    return () => {
+      if (back) {
+        backButton.hide();
+        backButton.unmount();
+      }
+    };
+  }, [back]);
 
   return <>{children}</>;
 }
