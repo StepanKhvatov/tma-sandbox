@@ -4,8 +4,8 @@ import { openLink } from '@telegram-apps/sdk-react';
 import { TonConnectButton, useTonWallet } from '@tonconnect/ui-react';
 
 import { tv } from 'tailwind-variants/lite';
-import { DisplayData } from '@/components/display-data/DisplayData';
-import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
+import { DisplayData } from '@/components/DisplayData';
+import { TMABackButton } from '@/components/TMABackButton';
 
 const tonConnectPage = tv({
   slots: {

@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
 
-import { Root } from '@/components/root/Root';
+import { Root } from '@/components/Root';
 import { I18nProvider } from '@/core/i18n/provider';
 
 import '@/styles/globals.css';

@@ -2,8 +2,8 @@ import { isRGB } from '@telegram-apps/sdk-react';
 import type { FC, ReactNode } from 'react';
 
 import { tv } from 'tailwind-variants/lite';
-import { RGB } from '@/components/rgb/RGB';
-import { Link } from '@/components/link/Link';
+import { RGB } from '@/components/RGB';
+import { Link } from '@/components/Link';
 
 const displayData = tv({
   slots: {
@@ -91,3 +91,4 @@ export const DisplayData: FC<DisplayDataProps> = ({ header, rows, footer }) => (
     )}
   </div>
 );
+

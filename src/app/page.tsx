@@ -2,8 +2,8 @@
 
 import { useTranslations } from 'next-intl';
 
-import { Link } from '@/components/link/Link';
-import { LocaleSwitcher } from '@/components/locale-switcher/LocaleSwitcher';
+import { Link } from '@/components/Link';
+import { LocaleSwitcher } from '@/components/LocaleSwitcher';
 
 export default function Home() {
   const t = useTranslations('i18n');

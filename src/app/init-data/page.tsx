@@ -12,8 +12,8 @@ import {
 import {
   DisplayData,
   type DisplayDataRow,
-} from '@/components/display-data/DisplayData';
-import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
+} from '@/components/DisplayData';
+import { TMABackButton } from '@/components/TMABackButton';
 
 function getUserRows(user: User): DisplayDataRow[] {
   return Object.entries(user).map(([title, value]) => ({ title, value }));

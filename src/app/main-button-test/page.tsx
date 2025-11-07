@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
-import { TMAMainButton } from '@/components/tma-main-button/TMAMainButton';
+import { TMABackButton } from '@/components/TMABackButton';
+import { TMAMainButton } from '@/components/TMAMainButton';
 
 export default function MainButtonTestPage() {
   const router = useRouter();

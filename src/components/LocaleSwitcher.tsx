@@ -29,3 +29,4 @@ export const LocaleSwitcher: FC = () => {
     </select>
   );
 };
+

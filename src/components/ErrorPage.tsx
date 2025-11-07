@@ -24,3 +24,4 @@ export function ErrorPage({
     </div>
   );
 }
+

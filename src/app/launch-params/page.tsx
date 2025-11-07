@@ -2,8 +2,8 @@
 
 import { useLaunchParams } from '@telegram-apps/sdk-react';
 
-import { DisplayData } from '@/components/display-data/DisplayData';
-import { TMABackButton } from '@/components/tma-back-button/TMABackButton';
+import { DisplayData } from '@/components/DisplayData';
+import { TMABackButton } from '@/components/TMABackButton';
 
 export default function LaunchParamsPage() {
   const lp = useLaunchParams();
