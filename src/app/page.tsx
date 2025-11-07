@@ -33,6 +33,24 @@ export default function Home() {
               </span>
             </div>
           </Link>
+          <Link href="/main-button-test">
+            <div className="flex items-center px-6 py-4 transition-all duration-200 bg-white hover:bg-gray-50 group cursor-pointer">
+              <div className="w-12 h-12 rounded-xl bg-indigo-500 flex items-center justify-center mr-4 shadow-md group-hover:shadow-lg transition-shadow">
+                <span className="text-white font-bold text-lg">MB</span>
+              </div>
+              <div className="flex-1">
+                <div className="text-base font-semibold mb-1 text-gray-900">
+                  Main Button Test
+                </div>
+                <div className="text-sm text-gray-500">
+                  Test Telegram Main Button component
+                </div>
+              </div>
+              <span className="text-sm font-medium text-blue-600 hover:text-blue-700 opacity-0 group-hover:opacity-100 transition-opacity">
+                →
+              </span>
+            </div>
+          </Link>
         </div>
         <div className="prose prose-sm max-w-none px-6 py-4 text-sm text-gray-400 border-t border-gray-200">
           <p className="m-0">
