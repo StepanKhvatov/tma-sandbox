@@ -1,6 +1,5 @@
 'use client';
 
-import { Section, Cell, Image, List } from '@telegram-apps/telegram-ui';
 import { useTranslations } from 'next-intl';
 
 import { Link } from '@/components/Link/Link';
@@ -12,50 +11,63 @@ export default function Home() {
 
   return (
     <Page back={false}>
-      <List>
-        <Section
-          header="Features"
-          footer="You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects"
-        >
-          <Link href="/ton-connect">
-            <Cell
-              before={
-                <Image
+      <div className="list">
+        <div className="section">
+          <div className="section__header">Features</div>
+          <div className="section__content">
+            <Link href="/ton-connect">
+              <div className="cell">
+                <img
                   src="/ton.svg"
-                  style={{ backgroundColor: '#007AFF' }}
+                  style={{ backgroundColor: '#007AFF', width: '24px', height: '24px', marginRight: '12px' }}
                   alt="TON Logo"
                 />
-              }
-              subtitle="Connect your TON wallet"
-            >
-              TON Connect
-            </Cell>
-          </Link>
-        </Section>
-        <Section
-          header="Application Launch Data"
-          footer="These pages help developer to learn more about current launch information"
-        >
-          <Link href="/init-data">
-            <Cell subtitle="User data, chat information, technical data">
-              Init Data
-            </Cell>
-          </Link>
-          <Link href="/launch-params">
-            <Cell subtitle="Platform identifier, Mini Apps version, etc.">
-              Launch Parameters
-            </Cell>
-          </Link>
-          <Link href="/theme-params">
-            <Cell subtitle="Telegram application palette information">
-              Theme Parameters
-            </Cell>
-          </Link>
-        </Section>
-        <Section header={t('header')} footer={t('footer')}>
-          <LocaleSwitcher />
-        </Section>
-      </List>
+                <div className="cell__content">
+                  <div className="cell__title">TON Connect</div>
+                  <div className="cell__subtitle">Connect your TON wallet</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className="section__footer">You can use these pages to learn more about features, provided by Telegram Mini Apps and other useful projects</div>
+        </div>
+        <div className="section">
+          <div className="section__header">Application Launch Data</div>
+          <div className="section__content">
+            <Link href="/init-data">
+              <div className="cell">
+                <div className="cell__content">
+                  <div className="cell__title">Init Data</div>
+                  <div className="cell__subtitle">User data, chat information, technical data</div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/launch-params">
+              <div className="cell">
+                <div className="cell__content">
+                  <div className="cell__title">Launch Parameters</div>
+                  <div className="cell__subtitle">Platform identifier, Mini Apps version, etc.</div>
+                </div>
+              </div>
+            </Link>
+            <Link href="/theme-params">
+              <div className="cell">
+                <div className="cell__content">
+                  <div className="cell__title">Theme Parameters</div>
+                  <div className="cell__subtitle">Telegram application palette information</div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className="section">
+          <div className="section__header">{t('header')}</div>
+          <div className="section__content">
+            <LocaleSwitcher />
+          </div>
+          <div className="section__footer">{t('footer')}</div>
+        </div>
+      </div>
     </Page>
   );
 }

@@ -1,5 +1,4 @@
 import { isRGB } from '@telegram-apps/sdk-react';
-import { Cell, Checkbox, Section } from '@telegram-apps/telegram-ui';
 import type { FC, ReactNode } from 'react';
 
 import { tv } from 'tailwind-variants/lite';
@@ -27,39 +26,41 @@ export interface DisplayDataProps {
 }
 
 export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
-  <Section header={header}>
-    {rows.map((item, idx) => {
-      let valueNode: ReactNode;
+  <div className="section">
+    {header && <div className="section__header">{header}</div>}
+    <div className="section__content">
+      {rows.map((item, idx) => {
+        let valueNode: ReactNode;
 
-      if (item.value === undefined) {
-        valueNode = <i>empty</i>;
-      } else {
-        if ('type' in item) {
-          valueNode = <Link href={item.value}>Open</Link>;
-        } else if (typeof item.value === 'string') {
-          valueNode = isRGB(item.value) ? (
-            <RGB color={item.value} />
-          ) : (
-            item.value
-          );
-        } else if (typeof item.value === 'boolean') {
-          valueNode = <Checkbox checked={item.value} disabled />;
+        if (item.value === undefined) {
+          valueNode = <i>empty</i>;
         } else {
-          valueNode = item.value;
+          if ('type' in item) {
+            valueNode = <Link href={item.value}>Open</Link>;
+          } else if (typeof item.value === 'string') {
+            valueNode = isRGB(item.value) ? (
+              <RGB color={item.value} />
+            ) : (
+              item.value
+            );
+          } else if (typeof item.value === 'boolean') {
+            valueNode = (
+              <input type="checkbox" checked={item.value} disabled readOnly />
+            );
+          } else {
+            valueNode = item.value;
+          }
         }
-      }
 
-      return (
-        <Cell
-          className={line()}
-          subhead={item.title}
-          readOnly
-          multiline={true}
-          key={idx}
-        >
-          <span className={lineValue()}>{valueNode}</span>
-        </Cell>
-      );
-    })}
-  </Section>
+        return (
+          <div className={`cell ${line()}`} key={idx}>
+            <div className="cell__content">
+              <div className="cell__subtitle">{item.title}</div>
+              <span className={lineValue()}>{valueNode}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
 );

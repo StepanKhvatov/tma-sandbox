@@ -8,7 +8,6 @@ import {
   type User,
   useSignal,
 } from '@telegram-apps/sdk-react';
-import { List, Placeholder } from '@telegram-apps/telegram-ui';
 
 import {
   DisplayData,
@@ -68,29 +67,30 @@ export default function InitDataPage() {
   if (!initDataRows) {
     return (
       <Page>
-        <Placeholder
-          header="Oops"
-          description="Application was launched with missing init data"
-        >
+        <div className="placeholder">
+          <div className="placeholder__header">Oops</div>
+          <div className="placeholder__description">
+            Application was launched with missing init data
+          </div>
           <img
             alt="Telegram sticker"
             src="https://xelene.me/telegram.gif"
             style={{ display: 'block', width: '144px', height: '144px' }}
           />
-        </Placeholder>
+        </div>
       </Page>
     );
   }
   return (
     <Page>
-      <List>
+      <div className="list">
         <DisplayData header={'Init Data'} rows={initDataRows} />
         {userRows && <DisplayData header={'User'} rows={userRows} />}
         {receiverRows && (
           <DisplayData header={'Receiver'} rows={receiverRows} />
         )}
         {chatRows && <DisplayData header={'Chat'} rows={chatRows} />}
-      </List>
+      </div>
     </Page>
   );
 }

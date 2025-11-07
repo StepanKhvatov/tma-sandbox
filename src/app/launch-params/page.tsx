@@ -1,7 +1,6 @@
 'use client';
 
 import { useLaunchParams } from '@telegram-apps/sdk-react';
-import { List } from '@telegram-apps/telegram-ui';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
@@ -11,7 +10,7 @@ export default function LaunchParamsPage() {
 
   return (
     <Page>
-      <List>
+      <div className="list">
         <DisplayData
           rows={[
             { title: 'tgWebAppPlatform', value: lp.tgWebAppPlatform },
@@ -27,7 +26,7 @@ export default function LaunchParamsPage() {
             },
           ]}
         />
-      </List>
+      </div>
     </Page>
   );
 }

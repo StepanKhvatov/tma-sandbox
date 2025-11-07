@@ -1,7 +1,6 @@
 'use client';
 
 import { themeParams, useSignal } from '@telegram-apps/sdk-react';
-import { List } from '@telegram-apps/telegram-ui';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
@@ -11,7 +10,7 @@ export default function ThemeParamsPage() {
 
   return (
     <Page>
-      <List>
+      <div className="list">
         <DisplayData
           rows={Object.entries(tp).map(([title, value]) => ({
             title: title
@@ -20,7 +19,7 @@ export default function ThemeParamsPage() {
             value,
           }))}
         />
-      </List>
+      </div>
     </Page>
   );
 }

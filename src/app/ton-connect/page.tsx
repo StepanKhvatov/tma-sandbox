@@ -2,16 +2,6 @@
 
 import { openLink } from '@telegram-apps/sdk-react';
 import { TonConnectButton, useTonWallet } from '@tonconnect/ui-react';
-import {
-  Avatar,
-  Cell,
-  List,
-  Navigation,
-  Placeholder,
-  Section,
-  Text,
-  Title,
-} from '@telegram-apps/telegram-ui';
 
 import { tv } from 'tailwind-variants/lite';
 import { DisplayData } from '@/components/DisplayData/DisplayData';
@@ -33,19 +23,16 @@ export default function TONConnectPage() {
   if (!wallet) {
     return (
       <Page>
-        <Placeholder
-          className={placeholder()}
-          header="TON Connect"
-          description={
-            <>
-              <Text>
-                To display the data related to the TON Connect, it is required
-                to connect your wallet
-              </Text>
-              <TonConnectButton className={button()} />
-            </>
-          }
-        />
+        <div className={`placeholder ${placeholder()}`}>
+          <div className="placeholder__header">TON Connect</div>
+          <div className="placeholder__description">
+            <p>
+              To display the data related to the TON Connect, it is required
+              to connect your wallet
+            </p>
+            <TonConnectButton className={button()} />
+          </div>
+        </div>
       </Page>
     );
   }
@@ -57,29 +44,32 @@ export default function TONConnectPage() {
 
   return (
     <Page>
-      <List>
+      <div className="list">
         {'imageUrl' in wallet && (
           <>
-            <Section>
-              <Cell
-                before={
-                  <Avatar
-                    src={wallet.imageUrl}
-                    alt="Provider logo"
-                    width={60}
-                    height={60}
-                  />
-                }
-                after={<Navigation>About wallet</Navigation>}
-                subtitle={wallet.appName}
-                onClick={e => {
+            <div className="section">
+              <div
+                className="cell"
+                onClick={(e) => {
                   e.preventDefault();
                   openLink(wallet.aboutUrl);
                 }}
+                style={{ cursor: 'pointer' }}
               >
-                <Title level="3">{wallet.name}</Title>
-              </Cell>
-            </Section>
+                <img
+                  src={wallet.imageUrl}
+                  alt="Provider logo"
+                  width={60}
+                  height={60}
+                  style={{ marginRight: '12px', borderRadius: '50%' }}
+                />
+                <div className="cell__content">
+                  <h3 style={{ margin: 0 }}>{wallet.name}</h3>
+                  <div className="cell__subtitle">{wallet.appName}</div>
+                </div>
+                <span className="navigation">About wallet</span>
+              </div>
+            </div>
             <TonConnectButton className={buttonConnected()} />
           </>
         )}
@@ -101,13 +91,13 @@ export default function TONConnectPage() {
             {
               title: 'Features',
               value: features
-                .map(f => (typeof f === 'object' ? f.name : undefined))
-                .filter(v => v)
+                .map((f) => (typeof f === 'object' ? f.name : undefined))
+                .filter((v) => v)
                 .join(', '),
             },
           ]}
         />
-      </List>
+      </div>
     </Page>
   );
 }

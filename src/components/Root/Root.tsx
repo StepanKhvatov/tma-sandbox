@@ -8,7 +8,6 @@ import {
   useSignal,
 } from '@telegram-apps/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import { AppRoot } from '@telegram-apps/telegram-ui';
 
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { ErrorPage } from '@/components/ErrorPage';
@@ -28,14 +27,14 @@ function RootInner({ children }: PropsWithChildren) {
 
   return (
     <TonConnectUIProvider manifestUrl="/tonconnect-manifest.json">
-      <AppRoot
-        appearance={isDark ? 'dark' : 'light'}
-        platform={
+      <div
+        data-appearance={isDark ? 'dark' : 'light'}
+        data-platform={
           ['macos', 'ios'].includes(lp.tgWebAppPlatform) ? 'ios' : 'base'
         }
       >
         {children}
-      </AppRoot>
+      </div>
     </TonConnectUIProvider>
   );
 }
