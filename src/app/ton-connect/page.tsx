@@ -13,13 +13,21 @@ import {
   Title,
 } from '@telegram-apps/telegram-ui';
 
+import { tv } from 'tailwind-variants';
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
-import { bem } from '@/css/bem';
 
 import './TONConnectPage.css';
 
-const [, e] = bem('ton-connect-page');
+const tonConnectPage = tv({
+  slots: {
+    placeholder: '',
+    button: '',
+    buttonConnected: '',
+  },
+});
+
+const { placeholder, button, buttonConnected } = tonConnectPage();
 
 export default function TONConnectPage() {
   const wallet = useTonWallet();
@@ -28,7 +36,7 @@ export default function TONConnectPage() {
     return (
       <Page>
         <Placeholder
-          className={e('placeholder')}
+          className={placeholder()}
           header="TON Connect"
           description={
             <>
@@ -36,7 +44,7 @@ export default function TONConnectPage() {
                 To display the data related to the TON Connect, it is required
                 to connect your wallet
               </Text>
-              <TonConnectButton className={e('button')} />
+              <TonConnectButton className={button()} />
             </>
           }
         />
@@ -74,7 +82,7 @@ export default function TONConnectPage() {
                 <Title level="3">{wallet.name}</Title>
               </Cell>
             </Section>
-            <TonConnectButton className={e('button-connected')} />
+            <TonConnectButton className={buttonConnected()} />
           </>
         )}
         <DisplayData

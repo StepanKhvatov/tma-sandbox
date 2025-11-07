@@ -5,7 +5,7 @@ import {
   default as NextLink,
 } from 'next/link';
 
-import { classNames } from '@/css/classnames';
+import { clsx } from 'clsx';
 
 import './Link.css';
 
@@ -20,7 +20,7 @@ export const Link: FC<LinkProps> = ({
   ...rest
 }) => {
   const onClick = useCallback<MouseEventHandler<HTMLAnchorElement>>(
-    (e) => {
+    e => {
       propsOnClick?.(e);
 
       // Compute if target path is external. In this case we would like to open link using
@@ -44,7 +44,7 @@ export const Link: FC<LinkProps> = ({
         openLink(targetUrl.toString());
       }
     },
-    [href, propsOnClick],
+    [href, propsOnClick]
   );
 
   return (
@@ -52,7 +52,7 @@ export const Link: FC<LinkProps> = ({
       {...rest}
       href={href}
       onClick={onClick}
-      className={classNames(className, 'link')}
+      className={clsx(className, 'link')}
     />
   );
 };

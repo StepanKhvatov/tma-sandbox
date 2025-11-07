@@ -2,13 +2,20 @@ import { isRGB } from '@telegram-apps/sdk-react';
 import { Cell, Checkbox, Section } from '@telegram-apps/telegram-ui';
 import type { FC, ReactNode } from 'react';
 
+import { tv } from 'tailwind-variants';
 import { RGB } from '@/components/RGB/RGB';
 import { Link } from '@/components/Link/Link';
-import { bem } from '@/css/bem';
 
 import './DisplayData.css';
 
-const [, e] = bem('display-data');
+const displayData = tv({
+  slots: {
+    line: '',
+    lineValue: '',
+  },
+});
+
+const { line, lineValue } = displayData();
 
 export type DisplayDataRow = { title: string } & (
   | { type: 'link'; value?: string }
@@ -46,13 +53,13 @@ export const DisplayData: FC<DisplayDataProps> = ({ header, rows }) => (
 
       return (
         <Cell
-          className={e('line')}
+          className={line()}
           subhead={item.title}
           readOnly
           multiline={true}
           key={idx}
         >
-          <span className={e('line-value')}>{valueNode}</span>
+          <span className={lineValue()}>{valueNode}</span>
         </Cell>
       );
     })}

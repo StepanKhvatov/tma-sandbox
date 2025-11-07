@@ -1,20 +1,26 @@
 import type { RGB as RGBType } from '@telegram-apps/sdk-react';
 import type { FC } from 'react';
-
-import { bem } from '@/css/bem';
-import { classNames } from '@/css/classnames';
+import { tv } from 'tailwind-variants';
+import { clsx } from 'clsx';
 
 import './RGB.css';
 
-const [b, e] = bem('rgb');
+const rgb = tv({
+  slots: {
+    root: '',
+    icon: '',
+  },
+});
+
+const { root, icon } = rgb();
 
 export type RGBProps = JSX.IntrinsicElements['div'] & {
   color: RGBType;
 };
 
 export const RGB: FC<RGBProps> = ({ color, className, ...rest }) => (
-  <span {...rest} className={classNames(b(), className)}>
-    <i className={e('icon')} style={{ backgroundColor: color }} />
+  <span {...rest} className={clsx(root(), className)}>
+    <i className={icon()} style={{ backgroundColor: color }} />
     {color}
   </span>
 );
