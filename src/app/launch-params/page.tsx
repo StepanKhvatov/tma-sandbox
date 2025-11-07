@@ -10,8 +10,9 @@ export default function LaunchParamsPage() {
 
   return (
     <Page>
-      <div className="list">
+      <div className="space-y-6 p-4 max-w-4xl mx-auto">
         <DisplayData
+          header={<h2 className="m-0">Launch Parameters</h2>}
           rows={[
             { title: 'tgWebAppPlatform', value: lp.tgWebAppPlatform },
             { title: 'tgWebAppShowSettings', value: lp.tgWebAppShowSettings },

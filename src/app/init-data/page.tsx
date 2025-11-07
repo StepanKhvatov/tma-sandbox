@@ -38,7 +38,7 @@ export default function InitDataPage() {
           }
           return acc;
         },
-        [],
+        []
       ),
     ];
   }, [initDataState, initDataRaw]);
@@ -67,15 +67,17 @@ export default function InitDataPage() {
   if (!initDataRows) {
     return (
       <Page>
-        <div className="placeholder">
-          <div className="placeholder__header">Oops</div>
-          <div className="placeholder__description">
-            Application was launched with missing init data
+        <div className="flex flex-col items-center justify-center min-h-screen p-6 text-center">
+          <div className="prose prose-2xl max-w-none text-3xl font-bold mb-4 text-gray-900">
+            Oops
+          </div>
+          <div className="prose prose-base max-w-md text-base mb-6 text-gray-500">
+            <p>Application was launched with missing init data</p>
           </div>
           <img
             alt="Telegram sticker"
             src="https://xelene.me/telegram.gif"
-            style={{ display: 'block', width: '144px', height: '144px' }}
+            className="w-36 h-36 rounded-2xl shadow-lg"
           />
         </div>
       </Page>
@@ -83,13 +85,23 @@ export default function InitDataPage() {
   }
   return (
     <Page>
-      <div className="list">
-        <DisplayData header={'Init Data'} rows={initDataRows} />
-        {userRows && <DisplayData header={'User'} rows={userRows} />}
-        {receiverRows && (
-          <DisplayData header={'Receiver'} rows={receiverRows} />
+      <div className="space-y-6 p-4 max-w-4xl mx-auto">
+        <DisplayData
+          header={<h2 className="m-0">Init Data</h2>}
+          rows={initDataRows}
+        />
+        {userRows && (
+          <DisplayData header={<h2 className="m-0">User</h2>} rows={userRows} />
         )}
-        {chatRows && <DisplayData header={'Chat'} rows={chatRows} />}
+        {receiverRows && (
+          <DisplayData
+            header={<h2 className="m-0">Receiver</h2>}
+            rows={receiverRows}
+          />
+        )}
+        {chatRows && (
+          <DisplayData header={<h2 className="m-0">Chat</h2>} rows={chatRows} />
+        )}
       </div>
     </Page>
   );
