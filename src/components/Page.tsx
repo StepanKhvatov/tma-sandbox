@@ -2,6 +2,7 @@
 
 import { backButton, useSignal } from '@tma.js/sdk-react';
 import { PropsWithChildren, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 export function Page({
   children,
@@ -13,6 +14,8 @@ export function Page({
    */
   back?: boolean;
 }>) {
+  const router = useRouter();
+
   const isVisible = useSignal(backButton.isVisible);
 
   useEffect(() => {
@@ -23,6 +26,9 @@ export function Page({
     if (back) {
       backButton.mount();
       backButton.show();
+      backButton.onClick(() => {
+        router.back();
+      });
     }
 
     return () => {
