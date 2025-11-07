@@ -15,8 +15,6 @@ import { ErrorPage } from '@/components/ErrorPage';
 import { useDidMount } from '@/hooks/useDidMount';
 import { setLocale } from '@/core/i18n/locale';
 
-import './styles.css';
-
 function RootInner({ children }: PropsWithChildren) {
   const lp = useLaunchParams();
 

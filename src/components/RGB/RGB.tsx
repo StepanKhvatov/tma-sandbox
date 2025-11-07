@@ -3,8 +3,6 @@ import type { FC } from 'react';
 import { tv } from 'tailwind-variants';
 import { clsx } from 'clsx';
 
-import './RGB.css';
-
 const rgb = tv({
   slots: {
     root: '',

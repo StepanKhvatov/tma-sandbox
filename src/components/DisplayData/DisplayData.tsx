@@ -6,8 +6,6 @@ import { tv } from 'tailwind-variants';
 import { RGB } from '@/components/RGB/RGB';
 import { Link } from '@/components/Link/Link';
 
-import './DisplayData.css';
-
 const displayData = tv({
   slots: {
     line: '',

@@ -17,8 +17,6 @@ import { tv } from 'tailwind-variants';
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
 
-import './TONConnectPage.css';
-
 const tonConnectPage = tv({
   slots: {
     placeholder: '',

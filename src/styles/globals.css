@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+body {
+  background: var(--tg-theme-secondary-bg-color, white);
+  padding: 0;
+  margin: 0;
+}
+
+/* Root component styles */
+.root__loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Link component styles */
+.link {
+  text-decoration: none;
+  color: var(--tg-theme-link-color);
+}
+
+/* RGB component styles */
+.rgb {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.rgb__icon {
+  width: 18px;
+  aspect-ratio: 1;
+  border: 1px solid #555;
+  border-radius: 50%;
+}
+
+/* DisplayData component styles */
+.display-data__header {
+  font-weight: 400;
+}
+
+.display-data__line {
+  padding: 16px 24px;
+}
+
+.display-data__line-title {
+  color: var(--tg-theme-subtitle-text-color);
+}
+
+.display-data__line-value {
+  word-break: break-word;
+}
+
+/* TON Connect page styles */
+.ton-connect-page__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.ton-connect-page__button {
+  margin: 16px auto 0;
+}
+
+.ton-connect-page__button-connected {
+  margin: 16px 24px 16px auto;
+}

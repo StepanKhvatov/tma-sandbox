@@ -7,8 +7,6 @@ import {
 
 import { clsx } from 'clsx';
 
-import './Link.css';
-
 export interface LinkProps
   extends NextLinkProps,
     Omit<JSX.IntrinsicElements['a'], 'href'> {}
