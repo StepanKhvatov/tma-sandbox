@@ -1,6 +1,6 @@
 'use client';
 
-import { backButton } from '@telegram-apps/sdk-react';
+import { backButton } from '@tma.js/sdk-react';
 import { PropsWithChildren, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -15,9 +15,9 @@ export function Page({ children, back = true }: PropsWithChildren<{
 
   useEffect(() => {
     if (back) {
-      backButton.show();
+      backButton.mount();
     } else {
-      backButton.hide();
+      backButton.unmount();
     }
   }, [back]);
 

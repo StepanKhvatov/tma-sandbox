@@ -1,6 +1,6 @@
 import type { RGB as RGBType } from '@telegram-apps/sdk-react';
-import type { FC } from 'react';
-import { tv } from 'tailwind-variants';
+import type { FC, JSX } from 'react';
+import { tv } from 'tailwind-variants/lite';
 import { clsx } from 'clsx';
 
 const rgb = tv({

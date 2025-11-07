@@ -13,7 +13,7 @@ import {
   Title,
 } from '@telegram-apps/telegram-ui';
 
-import { tv } from 'tailwind-variants';
+import { tv } from 'tailwind-variants/lite';
 import { DisplayData } from '@/components/DisplayData/DisplayData';
 import { Page } from '@/components/Page';
 
@@ -72,7 +72,7 @@ export default function TONConnectPage() {
                 }
                 after={<Navigation>About wallet</Navigation>}
                 subtitle={wallet.appName}
-                onClick={(e) => {
+                onClick={e => {
                   e.preventDefault();
                   openLink(wallet.aboutUrl);
                 }}
@@ -101,8 +101,8 @@ export default function TONConnectPage() {
             {
               title: 'Features',
               value: features
-                .map((f) => (typeof f === 'object' ? f.name : undefined))
-                .filter((v) => v)
+                .map(f => (typeof f === 'object' ? f.name : undefined))
+                .filter(v => v)
                 .join(', '),
             },
           ]}

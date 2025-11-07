@@ -2,8 +2,9 @@
 // services that require one-time initialization on the client.
 
 import { retrieveLaunchParams } from '@telegram-apps/sdk-react';
-import { init } from './core/init';
+// import { init } from './core/init';
 import { mockEnv } from './mockEnv';
+import { init } from '@tma.js/sdk';
 
 mockEnv().then(() => {
   try {
@@ -14,11 +15,7 @@ mockEnv().then(() => {
       process.env.NODE_ENV === 'development';
 
     // Configure all application dependencies.
-    init({
-      debug,
-      eruda: debug && ['ios', 'android'].includes(platform),
-      mockForMacOS: platform === 'macos',
-    });
+    init();
   } catch (e) {
     console.log(e);
   }
