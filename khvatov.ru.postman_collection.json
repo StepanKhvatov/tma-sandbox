@@ -1,0 +1,87 @@
+{
+  "info": {
+    "_postman_id": "5e1c057a-fef7-4b38-a9f9-6f6b2c0df7c0",
+    "name": "khvatov.ru",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Коллекция khvatov.ru содержит запрос для поднятия резюме в поиске hh.ru."
+  },
+  "item": [
+    {
+      "name": "Lift Resume",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "X-Requested-With",
+            "value": "XMLHttpRequest"
+          },
+          {
+            "key": "Origin",
+            "value": "https://novosibirsk.hh.ru"
+          },
+          {
+            "key": "Referer",
+            "value": "https://novosibirsk.hh.ru/applicant/resumes"
+          },
+          {
+            "key": "X-Xsrftoken",
+            "value": "{{xsrf_token}}",
+            "description": "Токен XSRF/CSRF. Замените на актуальное значение из cookies."
+          },
+          {
+            "key": "X-HHTMFrom",
+            "value": "main"
+          },
+          {
+            "key": "X-HHTMSource",
+            "value": "resume_list"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "resume",
+              "value": "{{resume_id}}",
+              "description": "Идентификатор резюме для поднятия в поиске.",
+              "type": "text"
+            },
+            {
+              "key": "undirectable",
+              "value": "true",
+              "type": "text"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://novosibirsk.hh.ru/applicant/resumes/touch",
+          "protocol": "https",
+          "host": ["novosibirsk", "hh", "ru"],
+          "path": ["applicant", "resumes", "touch"]
+        },
+        "description": "Отправляет POST запрос на поднятие резюме. Перед выполнением обновите переменные коллекции `resume_id` и `xsrf_token` на свои значения."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "resume_id",
+      "value": "1fb40904ff0bcfccf50039ed1f6d6a43394448",
+      "description": "Текущий ID резюме. Замените при необходимости."
+    },
+    {
+      "key": "xsrf_token",
+      "value": "869104e861bef3cd3881e026b120f317",
+      "description": "Актуальный XSRF токен из cookies."
+    }
+  ]
+}
